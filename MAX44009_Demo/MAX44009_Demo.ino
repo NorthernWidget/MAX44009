@@ -5,15 +5,7 @@ MAX44009 Lux(0x4A);
 void setup() {
   Serial.begin(9600);
   
-  String Ent = "How can the net amount of entropy of the universe be massively decreased?\n\n";
-  String Think = "Thinking...\n";
-  String Data = "\nINSUFFICIENT DATA FOR MEANINGFUL ANSWER.\n\n";
-  
-  PrintString(Ent);
-  for(int x = 0; x < 5; x++) {
-    PrintString(Think);
-  }
-  PrintString(Data);
+  PrintInitialStatment(); //Just printing initial statment to show Serial is working (and inspire of course)
   
   Lux.Begin(0, 18800); //Begin with full range min and max values
 }
@@ -31,10 +23,23 @@ void loop() {
 
 }
 
+/////Ignore, Just pretty string printing
 void PrintString(String Val) {
   for(int i = 0; i < Val.length(); i++) {
       Serial.print(Val[i]);
       delay(75);
     }
+}
+
+void PrintInitialStatment(void) {
+    String Ent = "How can the net amount of entropy of the universe be massively decreased?\n\n";
+    String Think = "Thinking...\n";
+    String Data = "\nINSUFFICIENT DATA FOR MEANINGFUL ANSWER.\n\n";
+    
+    PrintString(Ent);
+    for(int x = 0; x < 5; x++) {
+      PrintString(Think);
+    }
+    PrintString(Data);
 }
 
